@@ -1,4 +1,5 @@
 # YaMDb Final
+![YaMDb workflow](https://github.com/dexie7/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 ## О проекте:
 
 RestAPI для сервиса Yamdb
@@ -42,3 +43,23 @@ DEBUG = True # данную опцию следует добавить для о
 - Примените миграции `sudo docker-compose exec web python manage.py migrate`
 - Соберите статику `sudo docker-compose exec web python manage.py collectstatic --no-input`
 - Создайте суперпользователя Django `sudo docker-compose exec web python manage.py createsuperuser --email 'admin@yamdb.com'`
+## Примеры эндпоинтов
+- Создать пользователя        /api/v1/auth/signup/
+```
+{ "email": "string", "username": "string" }
+```
+- Получить Jwt Token      /api/v1/auth/token/
+```
+{ "username": "string", "confirmation_code": "string" }
+```
+- Категории      /api/v1/categories/
+- Жанры         /api/v1/genres/
+- Произведения         /api/v1/titles/
+- Отзывы        /api/v1/titles/1/reviews/
+- Комментарии       /api/v1/titles/1/reviews/1/comments/
+- Пользователи          /api/v1/users/
+
+
+![](https://img.shields.io/pypi/pyversions/p5?logo=python&logoColor=yellow&style=for-the-badge)
+![](https://img.shields.io/badge/Django-2.2.16-blue)
+![](https://img.shields.io/badge/DRF-3.12.4-lightblue)
