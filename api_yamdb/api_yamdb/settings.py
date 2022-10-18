@@ -2,7 +2,7 @@ import os
 import environ
 from datetime import timedelta
 
-# import passwords
+
 env = environ.Env(
     DEBUG=(bool, False)
 )
