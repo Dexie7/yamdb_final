@@ -1,13 +1,20 @@
 import os
+import environ
 from datetime import timedelta
+
+# import passwords
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+environ.Env.read_env()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 
 INSTALLED_APPS = [
