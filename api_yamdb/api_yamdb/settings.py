@@ -6,7 +6,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY'),
 
 DEBUG = os.environ.get('DEBUG', False)
-# DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS'),
 
@@ -77,16 +76,7 @@ else:
             'PORT': os.getenv('DB_PORT')
         }
     }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('POSTGRES_USER'),
-#         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST'),
-#         'PORT': os.getenv('DB_PORT')
-#     }
-# }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
