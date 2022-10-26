@@ -20,6 +20,9 @@ RestAPI для сервиса Yamdb
 
 ### Предварительная подготовка
 
+#### Публичный IP
+158.160.6.7
+
 #### Установка Docker
 Установите Docker, используя инструкции с официального сайта:
 - для [Windows и MacOS](https://www.docker.com/products/docker-desktop) 
