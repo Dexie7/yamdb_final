@@ -28,6 +28,15 @@ RestAPI для сервиса Yamdb
 - для [Windows и MacOS](https://www.docker.com/products/docker-desktop) 
 - для [Linux](https://docs.docker.com/engine/install/ubuntu/). Установите [Docker Compose](https://docs.docker.com/compose/install/)
 
+### Подготовка сервера
+
+- Войдите на свой удаленный сервер в облаке `ssh [имя пользователя]@[ip-адрес]`
+- Остановите службу nginx `sudo systemctl stop nginx`
+- Установите docker `sudo apt install docker.io`
+- Установите docker-compose `sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
+- Затем необходимо задать правильные разрешения, чтобы сделать команду docker-compose исполняемой `sudo chmod +x /usr/local/bin/docker-compose` 
+- Скопируйте файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно. Используя следующую команду `scp [путь к файлу] [имя пользователя]@[имя сервера/ip-адрес]:[путь к файлу]`
+
 ### Установка проекта (на примере Linux)
 
 - Создайте папку для проекта YaMDb `mkdir yamdb` и перейдите в нее `cd yamdb`
