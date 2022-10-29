@@ -32,22 +32,19 @@ def sign_up(request):
              },
             status=status.HTTP_400_BAD_REQUEST
         )
-
-    else:
-        serializer.is_valid(raise_exception=True)
-        email = serializer.validated_data.get('email')
-        username = serializer.validated_data.get('username')
-        user, created = User.objects.get_or_create(username=username,
-                                                   email=email)
-        generate_token(user)
-        token = generate_token(user)
-        send_mail(
-            'Yamdb confirmation code',
-            f'{token}',
-            settings.AUTH_EMAIL,
-            [f'{email}']
-        )
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    serializer.is_valid(raise_exception=True)
+    email = serializer.validated_data.get('email')
+    username = serializer.validated_data.get('username')
+    user, created = User.objects.get_or_create(username=username, email=email)
+    generate_token(user)
+    token = generate_token(user)
+    send_mail(
+        'Yamdb confirmation code',
+        f'{token}',
+        settings.AUTH_EMAIL,
+        [f'{email}']
+    )
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
