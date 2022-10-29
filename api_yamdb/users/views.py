@@ -32,7 +32,6 @@ def sign_up(request):
              },
             status=status.HTTP_400_BAD_REQUEST
         )
-
     else:
         serializer.is_valid(raise_exception=True)
         email = serializer.validated_data.get('email')
